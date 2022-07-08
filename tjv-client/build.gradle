@@ -1,0 +1,18 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.4.0'
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+}
+
+group 'cz.cvut.fit.alekhkir.tjv.client'
+version '1.0-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation 'org.springframework.shell:spring-shell-starter:2.0.1.RELEASE'
+}

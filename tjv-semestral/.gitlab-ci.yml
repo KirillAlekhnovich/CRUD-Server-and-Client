@@ -1,0 +1,29 @@
+stages:
+  - build
+  - test
+
+before_script:
+  - export GRADLE_USER_HOME=`pwd`/.gradle
+  - chmod +x gradlew
+
+build:
+  stage: build
+  script:
+    - echo "Building..."
+    - ./gradlew build
+  artifacts:
+    paths:
+      - build/libs/*.jar
+    expire_in: 1 month
+
+test:
+  stage: test
+  script:
+    - echo "Testing..."
+    - ./gradlew test
+  artifacts:
+    reports:
+      junit: build/test-results/test/**/TEST-*.xml
+    paths:
+      - build/test-results/test/
+    expire_in: 1 month
